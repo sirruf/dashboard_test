@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
+# User's Dashboard Controller
 class DashboardsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_dashboard
-  before_action :set_element, only: [:update, :destroy]
+  before_action :set_element, only: %i[update destroy]
 
   def index
     @elements = @dashboard.dashboard_elements
@@ -32,5 +35,4 @@ class DashboardsController < ApplicationController
   def element_params
     params.permit(:position_top, :position_left, :category)
   end
-
 end

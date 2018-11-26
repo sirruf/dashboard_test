@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# User's Dashboard model
 class Dashboard < ApplicationRecord
   has_many :dashboard_elements
   belongs_to :user
@@ -7,7 +10,9 @@ class Dashboard < ApplicationRecord
   end
 
   def add_element_with_type(category)
-    (dashboard_elements << DashboardElement.new(category: category,
-                                                name: "Panel #{category.upcase}")).last
+    element = DashboardElement.new(category: category,
+                                   name: "Panel #{category.upcase}")
+    dashboard_elements << element
+    element
   end
 end

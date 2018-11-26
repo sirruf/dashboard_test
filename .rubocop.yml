@@ -1,0 +1,9 @@
+AllCops:
+  # Automatic generated files
+  Exclude:
+    - 'bin/**/*'
+    - 'config/**/*'
+    - 'db/**/*'
+    - 'lib/generators/**/*'
+    - 'lib/spree_product_import/engine.rb'
+    - 'spec/**/*'
