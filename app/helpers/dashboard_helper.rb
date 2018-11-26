@@ -3,7 +3,7 @@
 # Dashboard views helper
 module DashboardHelper
   def available_categories
-    %w[A B C]
+    DashboardElement.available_categories
   end
 
   def position_for(element)

@@ -2,7 +2,7 @@
   <%= image_tag("element_#{element.category}.png", class: '', alt: "Category #{element.category}") %>
   <div class="card-body">
     <h5 class="card-title"><%= element.name %> #<%= element.id %></h5>
-    <p class="card-text">This is draggable element</p>
+    <p class="card-text">This is a draggable element.</p>
     <%= link_to 'Delete', dashboard_path(element_id: element.id),
                 method: :delete, class: 'btn btn-danger', remote: true %>
   </div>
