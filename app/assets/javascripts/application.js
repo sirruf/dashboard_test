@@ -17,3 +17,29 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
+function reload_cards() {
+    $(".card").draggable({
+        stop: function (event, ui) {
+            // Create element object
+            var card = {};
+            card["element_id"] = event.target.id;
+            card["position_top"] = ui.position.top;
+            card["position_left"] = ui.position.left;
+            console.log(ui.position);
+            $.ajax({
+                url: "/dashboard",
+                type: 'PUT',
+                data: card,
+                success: function(result) {
+                    console.log(JSON.stringify(card))
+                }
+            });
+        }
+    });
+}
